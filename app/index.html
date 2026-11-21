@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Shores — GTA-Style Cover Maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <aside class="controls">
+    <header class="brand">
+      <h1>Neon Shores</h1>
+      <p>Your photos, one caption, a Vice City-grade multi-panel cover. Everything stays on your machine.</p>
+    </header>
+
+    <section class="group">
+      <h2>1 · Photos</h2>
+      <label class="drop" for="photo-input">Add your photos<input id="photo-input" type="file" accept="image/*" multiple></label>
+      <div class="samples">
+        <span>Try a sample:</span>
+        <button type="button" data-sample="convertible">Convertible</button>
+        <button type="button" data-sample="pier">Pier</button>
+        <button type="button" data-sample="boulevard">Boulevard</button>
+        <button type="button" data-sample="neon-night">Neon night</button>
+      </div>
+      <div id="tray" class="tray" aria-label="Your photos"></div>
+      <p class="hint">Pick a photo, then click a panel to place it. Drag inside a panel to reposition, scroll to zoom.</p>
+    </section>
+
+    <section class="group">
+      <h2>2 · Layout &amp; grade</h2>
+      <div id="layouts" class="segmented" role="group" aria-label="Layout"></div>
+      <label class="field">Colour grade
+        <select id="grade">
+          <option value="sunset">Vice Sunset</option>
+          <option value="neon">Neon Night</option>
+          <option value="golden">Golden Hour</option>
+          <option value="mono">Noir Mono</option>
+        </select>
+      </label>
+      <label class="check"><input id="grain" type="checkbox" checked> Film grain</label>
+      <label class="check"><input id="vignette" type="checkbox" checked> Vignette</label>
+      <label class="field">Selected panel zoom
+        <input id="zoom" type="range" min="1" max="3.5" step="0.01" value="1">
+      </label>
+    </section>
+
+    <section class="group">
+      <h2>3 · Caption</h2>
+      <label class="field">Big caption
+        <input id="caption" type="text" maxlength="42" value="Neon Harbor">
+      </label>
+      <label class="field">Pill line
+        <input id="subcaption" type="text" maxlength="30" value="Vice Shores">
+      </label>
+    </section>
+
+    <section class="group">
+      <h2>4 · Export</h2>
+      <div id="sizes" class="segmented" role="group" aria-label="Post size"></div>
+      <button id="export" class="export" type="button">Export PNG</button>
+      <p id="status" class="status" role="status"></p>
+    </section>
+  </aside>
+
+  <section class="stage">
+    <canvas id="cover" width="1080" height="1080" aria-label="Cover preview"></canvas>
+    <p class="stage-hint">Click a panel to select it · drag to move its photo · scroll to zoom</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
